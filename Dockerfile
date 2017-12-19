@@ -1,9 +1,9 @@
 FROM fedora:latest
 LABEL maintainer="thomaskrasowski@hotmail.com"
-# MySQL: 
+# MySQL:
 RUN dnf install -y community-mysql-server community-mysql-devel
 
-# Apache/PHP: 
+# Apache/PHP:
 RUN yum install -y httpd php php-mysql php-pdo php-gd php-snmp php-mbstring php-bcmath
 # To enable Unicode, add "character-set-server=utf8" line to "[mysqld]" section of "/etc/my.cnf" file and restart mysqld.
 
@@ -19,3 +19,5 @@ RUN gem update --system
 # Clone racktables
 ENV HOME /var/www/html
 RUN git clone https://github.com/pi-tek/racktables.git $HOME/racktables
+
+#
