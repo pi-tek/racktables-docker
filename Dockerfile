@@ -12,7 +12,7 @@ RUN yum install -y httpd php php-mysql php-pdo php-gd php-snmp php-mbstring php-
 RUN dnf install -y git-core zlib zlib-devel gcc-c++ patch readline readline-devel libyaml-devel libffi-devel openssl-devel make bzip2 autoconf automake libtool bison curl sqlite-devel
 
 # Install ruby
-RUN dnf install -y ruby ruby-rdoc ruby-devel rubygems
+RUN dnf install -y ruby ruby-devel rubygems rubygem-rdoc
 RUN gem update
 RUN gem update --system
 
@@ -20,4 +20,5 @@ RUN gem update --system
 ENV HOME /var/www/html
 RUN git clone https://github.com/pi-tek/racktables.git $HOME/racktables
 
-#
+# set up ports
+EXPOSE 80
